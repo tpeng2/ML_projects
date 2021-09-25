@@ -76,4 +76,4 @@ Six consective runs return an average accuracy around 80% (ranging from 70% to 8
 
 To download data, run the shell script first.
 
-![Loss over the mini-batch looks like this](./ML_examples/blob/main/Oxford17Flowers/SequentialConvNet/examples/loss_over_mini_batch.png)
+![Loss over the mini-batch looks like this](./Oxford17Flowers/SequentialConvNet/examples/loss_over_mini_batch.png)
