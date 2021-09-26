@@ -23,11 +23,9 @@
 >  )
 >  
 >  (layer2): Sequential(
->    (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+>    (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
 >    (1): ReLU()
->    (2): Conv2d(64, 64, kernel_size=(5, 5), stride=(1, 1), padding=(1, 1))
->    (3): ReLU()
->    (4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+>    (3): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
 >  )
 >  
 >  (layer3): Sequential(
@@ -66,7 +64,7 @@ The parameter size is 14210481, about 65% smaller than VGG 16.
 
 * Tested on RTX 3060 Ti with a Ryzen 7 3080 XT processor. Three rounds of training takes about 60 seconds.
 
-Six consective runs return an average accuracy around 84%-85% (ranging from 81% to 87%, with different hyperparameters).
+Six consective runs return an average accuracy around 84%-85% (ranging from 81% to 87%, with above hyperparameters).
 - 87.94117647058823 %
 - 82.3529411764706 %
 - 86.76470588235294 %
