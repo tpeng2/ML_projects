@@ -1,7 +1,7 @@
 # ML_examples
 
 ## 1. Oxford 17 flowers 
-[Reference] (https://www.robots.ox.ac.uk/~vgg/data/flowers/17/index.html)
+[Dataset] (https://www.robots.ox.ac.uk/~vgg/data/flowers/17/index.html)
 ![Sample Image](./Oxford17Flowers/SequentialConvNet/examples/Sample_Flowers.png)
 * Images are resized to 192 pixels x 192 pixels.
 
@@ -52,28 +52,29 @@
 >  )
 )
 
+The parameter size is 14210481, about 65% smaller than VGG 16.
 
 * Both SGD and Adam optimizers are considered, but Adam is easier for tuning given a limited time.
 
 * Hyper parameters are listed below. The dataset has three subgroups for testing, training, and validating (not used). For each testing group, I set an adaptive learning rate and batch number. For a deflating learning rate for each training set, I assume it helps avoid overfitting to some extents. 
-- Number of epochs: 10
+- Number of epochs: 15
 - Batch size: 50
-- Batch inflation rate: 1.2
-- Epoch inflation rate: 1.1
+- Batch inflation rate (deflation when <1): 1.25
+- Epoch inflation rate (deflation when <1): 0.6
 - Learning rate (for Adam): 0.00125
-- Learning rate (for SGD): 0.02
-- Learning rate inflation (deflation when <1): 0.98
+- Learning rate inflation (deflation when <1): 0.75
 
-* Tested on RTX 3060 Ti with a Ryzen 7 3080 XT processor. Training tales about two minutes.
+* Tested on RTX 3060 Ti with a Ryzen 7 3080 XT processor. Three rounds of training takes about 60 seconds.
 
-Six consective runs return an average accuracy around 80% (ranging from 70% to 87%, with different hyperparameters).
-- 83.23529411764706 %
-- 77.3529411764706 %
-- 81.17647058823529 %
-- 78.82352941176471 %
-- 80.58823529411765 %
-- 82.94117647058823 %
+Six consective runs return an average accuracy around 84%-85% (ranging from 81% to 87%, with different hyperparameters).
+- 87.94117647058823 %
+- 82.3529411764706 %
+- 86.76470588235294 %
+- 84.70588235294117 %
+- 87.05882352941177 %
+- 81.47058823529412 %
 
-To download data, run the shell script first.
+
+To download data, run the shell script 'download_data.sh' first.
 
 ![Loss over the mini-batch looks like this](./Oxford17Flowers/SequentialConvNet/examples/loss_over_mini_batch.png)
