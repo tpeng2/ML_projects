@@ -29,17 +29,17 @@ class ConvNet(nn.Module):
         super(ConvNet, self).__init__()
 
         self.layer1 = nn.Sequential (
-            nn.Conv2d(3, 16, kernel_size=3, padding=1),
+            nn.Conv2d(3, 24, kernel_size=3, padding=1),
             # nn.BatchNorm2d(16),
             nn.ReLU(),
-            nn.Conv2d(16, 32, kernel_size=5, padding=1),
+            nn.Conv2d(24, 64, kernel_size=5, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2),
         )
 
         self.layer2 = nn.Sequential (
-            nn.Conv2d(32, 64, kernel_size=3, padding=1),
-            nn.ReLU(),            
+            # nn.Conv2d(32, 64, kernel_size=3, padding=1),
+            # nn.ReLU(),            
             nn.Conv2d(64, 64, kernel_size=5, padding=1),
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2),
@@ -148,13 +148,13 @@ s3=sort_pic_groups(fname_val,tmp_val_dir,label_val); del s3
 #%%
 # Hyper pyarameters
 image_res=192
-num_epochs = 12
+num_epochs = 15
 num_classes = 17
 batch_size = 50
 learning_rate = 0.00125
-lr_inflation=0.98 #assuming generality is obtained at the first round
-bt_inflation=1.2
-ep_inflation=1.25
+lr_inflation=0.75 #assuming generality is obtained at the first round
+bt_inflation=1.25
+ep_inflation=0.6
 #% define model
 
 model = ConvNet(num_classes).to(device)
